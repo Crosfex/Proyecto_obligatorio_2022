@@ -14,15 +14,25 @@
       background-color: rgb(248, 249, 250);
     }
   </style>
+  <script src="js/login.js"></script>
 </head>
 
 <body>
   <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    
+    <div class="text-center">
+      <img src="img\login.png" alt="imagen" width="900" height="300">
+      <h1 class="mb-4">Iniciar Sesion</h1>
+      <div>
+          <label class="h5" for="email">Email </label><br>
+          <input type="text" name="email" id="email" class="mb-3" placeholder="cuenta@dominio.com">
+          <br>
+          <label class="h5" for="password">Contraseña </label><br>
+          <input type="password" name="password" id="password" placeholder="contraseña" class="mb-5"><br>
+          <input type="button" value="Ingresar" id="btn" class="btn btn-secondary">
       </div>
     </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">
