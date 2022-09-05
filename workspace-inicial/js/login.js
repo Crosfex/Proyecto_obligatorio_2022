@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     btn.addEventListener('click', ()=>{
         if(email.value != '' && contrasenia != ''){
+            localStorage.setItem('Email', email.value);
+            localStorage.setItem('Password', contrasenia.value);
             window.location.href="home.html";
         }
     })
