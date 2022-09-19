@@ -73,7 +73,7 @@ function imprimir(array){
     for(let i = 0;i<array.length; i++){
         let producto = array[i];
             contenidoAgregadoHtml +=`
-            <div class="row">
+            <div class="row" onclick="setProductIndex(${i}, ${producto.id})">
             <div class="col-3">
             <img src=${producto.image} alt="" class="border border-dark img-fluid">
             </div>
@@ -86,35 +86,14 @@ function imprimir(array){
             </div>
             </div>
             `
-        
     }
 
     document.getElementById("contenedor").innerHTML = contenidoAgregadoHtml;
 }
-/*function showCategoriesList(elementos){
-    let htmlContentToAppend = "";
 
-    for(let i = 0; i < elementos.length; i++){ 
-        let category = elementos[i];
-        htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + category.imgSrc + `" alt="product image" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <div class="mb-1">
-                        <h4>`+ category.name +`</h4> 
-                        <p> `+ category.description +`</p> 
-                        </div>
-                        <small class="text-muted">` + category.productCount + ` artículos</small> 
-                    </div>
 
-                </div>
-            </div>
-        </div>
-        `
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
-    }
-}*/
+function setProductIndex(index, id){
+    localStorage.setItem("productIndex", index);
+    localStorage.setItem("productID", id);
+    window.location = "product-info.html";
+}
