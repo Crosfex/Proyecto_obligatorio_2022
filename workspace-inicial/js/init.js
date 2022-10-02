@@ -39,3 +39,10 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+
+function logOut(){
+  localStorage.removeItem('Email');
+  localStorage.removeItem('Password');
+  window.location = "index.html"
+}

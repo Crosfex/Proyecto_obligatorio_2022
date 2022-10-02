@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     query(urlObjeto).then(function(objeto){
         if(objeto.status === 'ok'){
             elementos = objeto.data;
-            imprimir(elementos);
+            imprimirProducto(elementos);
+            imprimirRelacionados(elementos);
         }
     })
 
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             comentarios(objeto.data);
         }
     })
-
 
     document.getElementById('boton').addEventListener("click", ()=>{
         let comentario = document.getElementById('campo').value;
@@ -59,6 +59,23 @@ document.addEventListener("DOMContentLoaded", function(e){
             divs[divs.length - 1].innerHTML = estrellas;
         }
     })
+
+    document.getElementById('user').innerHTML=`
+        <div class="dropdown">
+            <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+                ${localStorage.getItem('Email')}
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a href="cart.html" class="dropdown-item">Mi carrito</a></li>
+                <li><a href="my-profile.html" class="dropdown-item">Mi perfil</a></li>
+                <li><a class="dropdown-item" onclick=logOut()>Cerrar sesion</a></li>
+            </ul>
+            <img src="img/img_perfil.png" width="30px" height="30px" class="mt-1">
+        </div>
+        
+    `;
+
 })
 
 function query(url){
@@ -86,29 +103,52 @@ function query(url){
     })
 }
 
-function imprimir(objeto){
+function imprimirProducto(objeto){
     let contenidoAgregadoHtml="";
     let producto = objeto.products[localStorage.getItem("productIndex")];
     contenidoAgregadoHtml =`
         <div class="row">
-          <h1 class="text-center">${producto.name}</h1>
-          <hr>
-          <p class="fw-bold fs-4 m-0">Precio:</p>
-          <p class="fst-italic fs-5">U$D ${producto.cost}</p>
-          <p class="fw-bold fs-4 m-0">Descripción:</p>
-          <p class="fst-italic fs-5">${producto.description}</p>
-          <p class="fw-bold fs-4 m-0">Categoria:</p>
-          <p class="fst-italic fs-5">${objeto.catName}</p>
-          <p class="fw-bold fs-4 m-0">Vendidos:</p>
-          <p class="fst-italic fs-5">${producto.soldCount}</p>
-            
-          <div class="col-6 text-center position-absolute start-50 mt-5">
+        <h1 class="text-center">${producto.name}</h1>
+        <hr>
+          <div class="col-6 border">
+          <p class="fw-bold fs-3 m-0">Precio:</p>
+          <p class="fst-italic fs-4">U$D ${producto.cost}</p>
+          <p class="fw-bold fs-3 m-0">Descripción:</p>
+          <p class="fst-italic fs-4">${producto.description}</p>
+          <p class="fw-bold fs-3 m-0">Categoria:</p>
+          <p class="fst-italic fs-4">${objeto.catName}</p>
+          <p class="fw-bold fs-3 m-0">Vendidos:</p>
+          <p class="fst-italic fs-4">${producto.soldCount}</p>
+            </div>
+          <div class="col-6 text-center border">
             <p class="fw-bold fs-4">Imagenes del producto:</p>
-            <img src="${producto.image}" alt="" width="500px" height="300px" class="">
+            <img src="${producto.image}" alt="" class="img-fluid">
           </div>
         </div>
         `
-    document.getElementById("container").innerHTML += contenidoAgregadoHtml;
+    document.getElementById("productContainer").innerHTML += contenidoAgregadoHtml;
+}
+
+function imprimirRelacionados(array){
+    let contenidoAgregadoHtml="";
+    for(i=0; i<array.products.length; i++){
+        if(i == localStorage.getItem('productIndex')){
+
+        }else{
+            let producto = array.products[i];
+            contenidoAgregadoHtml+=`
+            <div class="col-3" onclick="setProductIndex(${i}, ${producto.id})">
+                <div class="border">
+                    <img src="${producto.image}" alt="" class="img-fluid">
+                    ${producto.name}
+                </div>
+            </div>
+            `
+        }
+        
+    }
+    
+    document.getElementById('relatedProductsContainer').innerHTML = contenidoAgregadoHtml;
 }
 
 
@@ -162,8 +202,10 @@ function asignarEstrellas(cant){
     puntaje = cant;
 }
 
-function agregarComentario(){
-
+function setProductIndex(index, id){
+    localStorage.setItem("productIndex", index);
+    localStorage.setItem("productID", id);
+    window.location.reload();
 }
 
 /*
