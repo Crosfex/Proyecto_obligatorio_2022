@@ -97,7 +97,7 @@ function imprimir(array){
             <div class="col-9 border border-dark">
             <div class="col d-flex justify-content-between">
                 <p>${producto.name} - U$D ${producto.cost}</p>
-                <p>Vendidos: ${producto.soldCount}</p>
+                <p class="me-2">Vendidos: ${producto.soldCount}</p>
             </div>
             <div class="col"><p>${producto.description}</p></div>
             </div>
