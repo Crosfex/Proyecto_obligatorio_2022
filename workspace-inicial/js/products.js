@@ -1,12 +1,12 @@
 let elementos = [];
+const descCat = document.getElementById('categoria');
 document.addEventListener("DOMContentLoaded", function(e){
     const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`;
     query(url).then(function(objeto){
         if(objeto.status === 'ok'){
             elementos = objeto.data;
             imprimir(elementos.products);
-            const descCat = document.getElementById('categoria');
-            descCat.innerHTML+=`<p>Descripcion de la categoria ${elementos.catName}</p>`
+            descCat.innerHTML = `<h1>${elementos.catName}</h1>`
         }
     })
 

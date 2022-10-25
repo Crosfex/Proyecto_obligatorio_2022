@@ -29,19 +29,70 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="user">
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="container d-flex flex-column mt-3" id="container">
+      <p class="fs-3 text-center fw-bold ">Mi Carrito</p>
+      
+      <div class="row text-center mt-3">
+        <p class="col-1"></p>
+        <p class="col-3">Nombre</p>
+        <p class="col-3">Precio</p>
+        <p class="col-3">Cantidad</p>
+        <p class="col-2">Subtotal</p>
       </div>
+
+      <hr>
+      
     </div>
-  </main>
+    
+      <div class="d-flex justify-content-center" action="submit">
+        <div class="col-6">
+
+          <h2 class="text-center">Tipo de envio</h2>
+          
+          <div class="d-flex justify-content-center mt-5">
+            <input type="radio" name="premium" id="premium">
+            <label for="premium">Premium de 2 a 5 dias (15%)</label>
+          </div>
+          
+          <div class="d-flex justify-content-center mt-2">
+            <input type="radio" name="express" id="express">
+            <label for="express">Express de 5 a 8 dias (7%)</label>
+          </div>
+          
+          <div class="d-flex justify-content-center mt-2">
+            <input type="radio" name="standard" id="standard">
+            <label for="standard">Standard de 12 a 15 dias (5%)</label>
+          </div>
+        </div>
+
+        <div class="col-6 text-center">
+          <h3>Direccion de envio</h3>
+          <div class="col-12">
+            <label for="calle">Calle</label><br>
+            <input type="text" name="calle" id="calle" size="50">
+          </div>
+          <div class="col-12">
+            <label for="numero">Numero</label><br>
+            <input type="text" name="numero" id="numero" size="50">
+          </div>
+          <div class="col-12">
+            <label for="esquina">Esquina</label><br>
+            <input type="text" name="esquina" id="esquina" size="50">
+          </div>
+        </div>
+      
+      </div>
+      <div class="d-flex justify-content-center mt-5">
+      <button type="submit" class="button button-secondary justify-content-center">Confirmar compras</button>
+    </div>
+    </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
