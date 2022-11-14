@@ -34,11 +34,16 @@ function imprimir(array){
         <div class="row text-center align-items-center">
         <img src="${articulos.image}" alt="auto" class="img-fluid col-1 ">
         <p class="col-3 ">${articulos.name}</p>
-        <p class="col-3 ">${articulos.currency + articulos.unitCost}</p>
-        <input type="number" id="inp${i}" value=1 class="col-3" placeholder="inserte cantidad">
-        <p class="col-2"></p>
+        <p class="col-3 ">${articulos.unitCost}</p>
+        <input type="number" id="inp${i}" value=1 class="col-3" min="1" placeholder="inserte cantidad" onchange="subTotalProduct(this)">
+        <p class="col-2 subTotalProduct" id="subTotal${i}">${articulos.unitCost}</p>
       </div>
       <hr>
         `
     }
+}
+
+function subTotalProduct(input){
+    let precio = parseInt(input.previousSibling.previousSibling.textContent);
+    input.nextSibling.nextSibling.innerHTML =precio * input.value;
 }

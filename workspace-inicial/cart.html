@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link" href="home.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -38,61 +38,88 @@
   <main>
     <div class="container d-flex flex-column mt-3" id="container">
       <p class="fs-3 text-center fw-bold ">Mi Carrito</p>
-      
+
       <div class="row text-center mt-3">
         <p class="col-1"></p>
         <p class="col-3">Nombre</p>
-        <p class="col-3">Precio</p>
+        <p class="col-3">Precio (USD)</p>
         <p class="col-3">Cantidad</p>
-        <p class="col-2">Subtotal</p>
+        <p class="col-2">Subtotal (USD)</p>
       </div>
 
       <hr>
-      
-    </div>
-    
-      <div class="d-flex justify-content-center" action="submit">
-        <div class="col-6">
 
-          <h2 class="text-center">Tipo de envio</h2>
-          
-          <div class="d-flex justify-content-center mt-5">
-            <input type="radio" name="premium" id="premium">
-            <label for="premium">Premium de 2 a 5 dias (15%)</label>
+    </div>
+
+    <div class="ms-5 row">
+      <div class="col-6">
+        <p class="fs-3 fw-bold ms-5">Tipo de envio</p>
+
+        <div class="form-check ms-5">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Premium 2 a 5 dias (15%)
+          </label>
+        </div>
+
+        <div class="form-check ms-5">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Express 5 a 8 dias (7%)
+          </label>
+        </div>
+
+        <div class="form-check ms-5">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Standard 12 a 15 dias (5%)
+          </label>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="ms-5 text-start">
+            <p class="fs-3 fw-bold ms-5">Direccion de envio</p>
+            <label for="calle" class="col-2">Calle:</label>
+            <input type="text" id="calle" class="mb-2 col-4">
+            <br>
+            <label for="Numero" class="col-2">Numero:</label>
+            <input type="text" id="Numero" class="mb-2 col-4">
+            <br>
+            <label for="Esquina" class="col-2">Esquina:</label>
+            <input type="text" id="Esquina" class="mb-2 col-4">
           </div>
-          
-          <div class="d-flex justify-content-center mt-2">
-            <input type="radio" name="express" id="express">
-            <label for="express">Express de 5 a 8 dias (7%)</label>
-          </div>
-          
-          <div class="d-flex justify-content-center mt-2">
-            <input type="radio" name="standard" id="standard">
-            <label for="standard">Standard de 12 a 15 dias (5%)</label>
-          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row mx-5">
+      <p class="fs-3 fw-bold mx-5">Costos</p>
+      <div class="row border mx-5">
+
+        <div class="col-6">
+          <p>Subtotal <br><small>(Costo unitario por cantidad)</small></p>
         </div>
 
         <div class="col-6 text-center">
-          <h3>Direccion de envio</h3>
-          <div class="col-12">
-            <label for="calle">Calle</label><br>
-            <input type="text" name="calle" id="calle" size="50">
-          </div>
-          <div class="col-12">
-            <label for="numero">Numero</label><br>
-            <input type="text" name="numero" id="numero" size="50">
-          </div>
-          <div class="col-12">
-            <label for="esquina">Esquina</label><br>
-            <input type="text" name="esquina" id="esquina" size="50">
-          </div>
+          <p id="costoSubtotal">USD15611</p>
         </div>
-      
       </div>
-      <div class="d-flex justify-content-center mt-5">
-      <button type="submit" class="button button-secondary justify-content-center">Confirmar compras</button>
+
+      <div class="row border mx-5">
+        
+        <div class="col-6">
+          <p>Costo de envio <br><small>(Segun tipo de envio)</small></p>
+        </div>
+
+        <div class="col-6 text-center">
+          <p id="costoEnvio">USD15611</p>
+        </div>
+      </div>
     </div>
-    </main>
+  </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
