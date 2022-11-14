@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function perfil() {
-    if (pn.value == '' || pa.value == '') {
+    if (pn.value == '' || pa.value == '' || email.value == '') {
         alert('Algo salio mal');
     } else {
         localStorage.setItem('primerNombre', pn.value);
