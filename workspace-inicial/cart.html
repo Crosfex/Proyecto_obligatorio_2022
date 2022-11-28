@@ -36,6 +36,66 @@
     </div>
   </nav>
   <main>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radio" id="tarjeta" required>
+              <label class="form-check-label" for="tarjeta">
+                Tarjeta de credito
+              </label>
+            </div>
+            <hr>
+
+            <div class="d-flex row">
+              <div class="col-6 mb-1">
+                <label for="numero">Numero de tarjeta</label>
+                <br>
+                <input type="text" id="numero">
+              </div>
+              <div class="col-6 mb-1">
+                <label for="codigo">Cod. de seguridad</label>
+                <br>
+                <input type="text" id="codigo">
+              </div>
+              <br>
+              <div class="col-6 mb-1">
+                <label for="numero">Fecha de vencimiento</label>
+                <br>
+                <input type="text" id="numero">
+              </div>
+            </div>
+
+            <div class="form-check mt-3">
+              <input class="form-check-input" type="radio" name="radio" id="transferencia" required>
+              <label class="form-check-label" for="transferencia">
+                Transferencia bancaria
+              </label>
+            </div>
+            <hr>
+            <div>
+              <label for="numeroCuenta">Numero de cuenta</label>
+              <br>
+              <input type="text" name="numeroCuenta" id="numeroCuenta">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="cambios">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
     <div class="container d-flex flex-column mt-3" id="container">
       <p class="fs-3 text-center fw-bold ">Mi Carrito</p>
 
@@ -48,77 +108,79 @@
       </div>
 
       <hr>
-
     </div>
+    <form>
+      <div class="d-flex flex-row justify-content-around">
+        <div class="text-center">
+          <h3>Tipo de envio</h3>
 
-    <div class="ms-5 row">
-      <div class="col-6">
-        <p class="fs-3 fw-bold ms-5">Tipo de envio</p>
-
-        <div class="form-check ms-5">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Premium 2 a 5 dias (15%)
-          </label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="radio" id="Premium" required>
+            <label class="form-check-label" for="Premium">
+              Premium de 2 a 5 dias (15%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="radio" id="express">
+            <label class="form-check-label" for="express">
+              Express de x a x dias (7%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="radio" id="standard">
+            <label class="form-check-label" for="standard">
+              Standard de 12 a 15 dias (5%)
+            </label>
+          </div>
         </div>
 
-        <div class="form-check ms-5">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Express 5 a 8 dias (7%)
-          </label>
-        </div>
-
-        <div class="form-check ms-5">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Standard 12 a 15 dias (5%)
-          </label>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="row">
-          <div class="ms-5 text-start">
-            <p class="fs-3 fw-bold ms-5">Direccion de envio</p>
-            <label for="calle" class="col-2">Calle:</label>
-            <input type="text" id="calle" class="mb-2 col-4">
-            <br>
-            <label for="Numero" class="col-2">Numero:</label>
-            <input type="text" id="Numero" class="mb-2 col-4">
-            <br>
-            <label for="Esquina" class="col-2">Esquina:</label>
-            <input type="text" id="Esquina" class="mb-2 col-4">
+        <div class="text-center d-flex flex-column justify-content-center">
+          <h3>Direccion de envio</h3>
+          <div class="mb-3">
+            <label for="calle" class="me-3">Calle</label>
+            <input type="text" name="calle" id="calle" required>
+          </div>
+          <div class="mb-3">
+            <label for="numero">Numero</label>
+            <input type="text" name="numero" id="numero" required>
+          </div>
+          <div class="mb-3">
+            <label for="esquina">Esquina</label>
+            <input type="text" name="esquina" id="esquina" required>
           </div>
         </div>
       </div>
-    </div>
 
+      <div class="d-flex flex-column mt-5 mx-5 mb-5">
+        <h3 class="text-center">Costos</h3>
 
-
-    <div class="row mx-5">
-      <p class="fs-3 fw-bold mx-5">Costos</p>
-      <div class="row border mx-5">
-
-        <div class="col-6">
-          <p>Subtotal <br><small>(Costo unitario por cantidad)</small></p>
+        <div class="mx-5 border d-flex justify-content-between align-items-center p-2">
+          <p>Subtotal <br><small>Costo unitario del producto por cantidad</small></p>
+          <p class="fs-5" id="subtotal">USD25000</p>
         </div>
 
-        <div class="col-6 text-center">
-          <p id="costoSubtotal">USD15611</p>
-        </div>
-      </div>
-
-      <div class="row border mx-5">
-        
-        <div class="col-6">
-          <p>Costo de envio <br><small>(Segun tipo de envio)</small></p>
+        <div class="mx-5 border d-flex justify-content-between align-items-center p-2">
+          <p>Costo de envio <br><small>Segun el tipo de envio</small></p>
+          <p class="fs-5">USD25000</p>
         </div>
 
-        <div class="col-6 text-center">
-          <p id="costoEnvio">USD15611</p>
+        <div class="mx-5 border d-flex justify-content-between align-items-center p-2">
+          <p>Total ($)</p>
+          <p class="fs-5">USD25000</p>
         </div>
       </div>
-    </div>
+
+      <div class="mx-5 mb-5 text-center">
+        <h3 class="mx-5 mb-3">Forma de pago</h3>
+        <a class="mx-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Seleccionar fomra de pago</a>
+      </div>
+      
+
+
+      <div class="text-center">
+        <input type="submit" class="btn btn-primary" value="Finalizar compra">
+      </div>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">
